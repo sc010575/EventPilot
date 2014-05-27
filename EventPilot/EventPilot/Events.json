@@ -1,0 +1,52 @@
+{
+    "item": [
+             {
+             "id": "0001",
+             "event-type": "Concert",
+             "name": "Lorde In Consert",
+             "location": "Ashford",
+             "postcode": "TW15 3PS",
+             "date": "2014-04-21T18:25:43-05:00",
+             "price": "$40.00",
+             "Categories" : "Groups",
+             "coordinate": {
+             "latitude" : 51.431549,
+             "longitude": -0.474782
+             },
+             "image": {
+             "url": "images/0001.jpg",
+             "width": 200,
+             "height": 200
+             },
+             "thumbnail": {
+             "url": "images/thumbnails/0001.jpg",
+             "width": 32,
+             "height": 32
+             }
+             },
+             {
+             "id": "0002",
+             "event-type": "Music",
+             "name": "Live Music for  kids",
+             "location": "London",
+             "postcode": "EC4A 2AH",
+             "date": "2014-05-21T18:25:43-05:00",
+             "price": "$60.00",
+             "Categories" : "Kids friendly",
+             "coordinate": {
+             "latitude" : 51.431549,
+             "longitude": -0.474782
+             },
+             "image": {
+             "url": "images/0001.jpg",
+             "width": 200,
+             "height": 200
+             },
+             "thumbnail": {
+             "url": "images/thumbnails/0001.jpg",
+             "width": 32,
+             "height": 32
+             }
+             }
+             ]
+}
