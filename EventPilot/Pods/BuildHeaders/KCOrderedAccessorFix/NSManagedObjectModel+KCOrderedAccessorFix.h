@@ -1,0 +1,1 @@
+../../KCOrderedAccessorFix/NSManagedObjectModel+KCOrderedAccessorFix.h
