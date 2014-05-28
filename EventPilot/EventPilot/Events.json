@@ -13,6 +13,11 @@
              "latitude" : 51.431549,
              "longitude": -0.474782
              },
+             "map-image": {
+             "url": "images/00011.jpg",
+             "width": 200,
+             "height": 200
+             },
              "image": {
              "url": "images/0001.jpg",
              "width": 200,
@@ -36,6 +41,11 @@
              "coordinate": {
              "latitude" : 51.431549,
              "longitude": -0.474782
+             },
+             "map-image": {
+             "url": "images/00011.jpg",
+             "width": 200,
+             "height": 200
              },
              "image": {
              "url": "images/0001.jpg",

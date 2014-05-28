@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		8CFF89ED328C4A258901B664 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37A927DCFE64CA7A36BDD58 /* libPods.a */; };
+		C5127895193670AA0018AC96 /* DATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5127894193670AA0018AC96 /* DATableViewCell.m */; };
 		C5CB502019331B3E00727D13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB501F19331B3E00727D13 /* Foundation.framework */; };
 		C5CB502219331B3E00727D13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB502119331B3E00727D13 /* CoreGraphics.framework */; };
 		C5CB502419331B3E00727D13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB502319331B3E00727D13 /* UIKit.framework */; };
@@ -57,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C5127893193670AA0018AC96 /* DATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableViewCell.h; sourceTree = "<group>"; };
+		C5127894193670AA0018AC96 /* DATableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableViewCell.m; sourceTree = "<group>"; };
 		C5CB501C19331B3E00727D13 /* EventPilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventPilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5CB501F19331B3E00727D13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C5CB502119331B3E00727D13 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C5127892193670810018AC96 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C5127893193670AA0018AC96 /* DATableViewCell.h */,
+				C5127894193670AA0018AC96 /* DATableViewCell.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		C5CB501319331B3E00727D13 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +165,7 @@
 		C5CB502719331B3E00727D13 /* EventPilot */ = {
 			isa = PBXGroup;
 			children = (
+				C5127892193670810018AC96 /* Common */,
 				C5CB50621934965D00727D13 /* Navigation */,
 				C5CB50631934965D00727D13 /* Project Folder */,
 				C5CB50641934965D00727D13 /* View */,
@@ -387,6 +400,7 @@
 				C5CB503B19331B3F00727D13 /* EventPilot.xcdatamodeld in Sources */,
 				C5CB502E19331B3E00727D13 /* main.m in Sources */,
 				C5CB504119331B3F00727D13 /* DADetailViewController.m in Sources */,
+				C5127895193670AA0018AC96 /* DATableViewCell.m in Sources */,
 				C5CB503219331B3E00727D13 /* DAAppDelegate.m in Sources */,
 				C5CB503E19331B3F00727D13 /* DAMasterViewController.m in Sources */,
 				C5CB506B193497FD00727D13 /* NSManagedObjectContext+ContextSwitching.m in Sources */,
@@ -640,6 +654,7 @@
 				C5CB506F1934986F00727D13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
