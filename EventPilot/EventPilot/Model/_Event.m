@@ -10,6 +10,7 @@ const struct EventAttributes EventAttributes = {
 	.name = @"name",
 	.postalCode = @"postalCode",
 	.timeStamp = @"timeStamp",
+	.type = @"type",
 };
 
 const struct EventRelationships EventRelationships = {
@@ -90,6 +91,13 @@ const struct EventFetchedProperties EventFetchedProperties = {
 
 
 @dynamic timeStamp;
+
+
+
+
+
+
+@dynamic type;
 
 
 

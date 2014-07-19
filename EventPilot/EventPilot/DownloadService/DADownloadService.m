@@ -8,10 +8,11 @@
 
 #import "DADownloadService.h"
 #import "AFHTTPRequestOperation.h"
-#import "DAResultResponse.h"
-#import "Event.h"
 #import "AFURLSessionManager.h"
+#import "DAResultResponse.h"
 #import "DAResourceLoader.h"
+#import "DAEventParser.h"
+
 
 @interface DADownloadService ()
 @property (strong, nonatomic) DAResultResponse *results;
@@ -63,7 +64,6 @@
 
 -(void)update
 {
-    [self performEventParsing];
     [_downloadQueue removeObjectAtIndex:0];
     _isBusy = NO;
     [self start];
@@ -126,9 +126,11 @@
         }
         else{
             //parse the file and load it to the database
-            NSDictionary * parseJSON = [DAResourceLoader JSONWithFileName:@"Events"];
-            
+            [DAEventParser parseEventWithBlock:^(BOOL success) {
+                //indicated that the event parsing is successful
+            }];
         }
+        [self update];
     }];
     [downloadTask resume];
 }
@@ -138,26 +140,6 @@
 {
     [_downloadQueue addObject:URL];
     [self start];
-}
-
--(void) performEventParsing
-{
-    [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
-        for (NSDictionary * eventDict in self.results.eventLists)
-        {
-            Event *event = [Event MR_createInContext:localContext];
-            event.event_Id = eventDict[@"id"];
-            
-            //save the results in the database and fatch all the pictures
-            
-        }
-    } completion:^(BOOL success, NSError *error) {
-        
-        //        dispatch_async([OSProductDownloadService queue], ^{
-        //            callback(product);
-        //        });
-    }];
-    
 }
 
 @end

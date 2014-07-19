@@ -5,6 +5,7 @@
 
 const struct EventImagesAttributes EventImagesAttributes = {
 	.event_image = @"event_image",
+	.imageUrl = @"imageUrl",
 };
 
 const struct EventImagesRelationships EventImagesRelationships = {
@@ -48,6 +49,13 @@ const struct EventImagesFetchedProperties EventImagesFetchedProperties = {
 
 
 @dynamic event_image;
+
+
+
+
+
+
+@dynamic imageUrl;
 
 
 

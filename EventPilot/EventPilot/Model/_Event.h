@@ -11,6 +11,7 @@ extern const struct EventAttributes {
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *postalCode;
 	__unsafe_unretained NSString *timeStamp;
+	__unsafe_unretained NSString *type;
 } EventAttributes;
 
 extern const struct EventRelationships {
@@ -25,6 +26,7 @@ extern const struct EventFetchedProperties {
 @class Categories;
 @class Coordinates;
 @class EventImages;
+
 
 
 
@@ -106,6 +108,16 @@ extern const struct EventFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* type;
+
+
+
+//- (BOOL)validateType:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSSet *category;
 
 - (NSMutableSet*)categorySet;
@@ -179,6 +191,12 @@ extern const struct EventFetchedProperties {
 
 - (NSDate*)primitiveTimeStamp;
 - (void)setPrimitiveTimeStamp:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveType;
+- (void)setPrimitiveType:(NSString*)value;
 
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="14A283o" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Categories" representedClassName="Categories" syncable="YES">
         <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Events" inverseName="category" inverseEntity="Events" syncable="YES"/>
@@ -11,6 +11,7 @@
     </entity>
     <entity name="EventImages" representedClassName="EventImages" syncable="YES">
         <attribute name="event_image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Events" inverseName="eventimages" inverseEntity="Events" syncable="YES"/>
     </entity>
     <entity name="Events" representedClassName="Event">
@@ -22,15 +23,16 @@
         <attribute name="timeStamp" optional="YES" attributeType="Date">
             <userInfo/>
         </attribute>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categories" inverseName="events" inverseEntity="Categories" syncable="YES"/>
         <relationship name="coordinate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Coordinates" inverseName="event" inverseEntity="Coordinates" syncable="YES"/>
         <relationship name="eventimages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventImages" inverseName="event" inverseEntity="EventImages" syncable="YES"/>
         <userInfo/>
     </entity>
     <elements>
-        <element name="Events" positionX="189" positionY="144" width="128" height="178"/>
         <element name="Categories" positionX="-18" positionY="224" width="128" height="73"/>
         <element name="Coordinates" positionX="225" positionY="407" width="128" height="88"/>
-        <element name="EventImages" positionX="34" positionY="378" width="128" height="73"/>
+        <element name="EventImages" positionX="34" positionY="378" width="128" height="88"/>
+        <element name="Events" positionX="189" positionY="144" width="128" height="193"/>
     </elements>
 </model>

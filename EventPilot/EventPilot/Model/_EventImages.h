@@ -6,6 +6,7 @@
 
 extern const struct EventImagesAttributes {
 	__unsafe_unretained NSString *event_image;
+	__unsafe_unretained NSString *imageUrl;
 } EventImagesAttributes;
 
 extern const struct EventImagesRelationships {
@@ -16,6 +17,7 @@ extern const struct EventImagesFetchedProperties {
 } EventImagesFetchedProperties;
 
 @class Event;
+
 
 
 
@@ -42,6 +44,16 @@ extern const struct EventImagesFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* imageUrl;
+
+
+
+//- (BOOL)validateImageUrl:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) Event *event;
 
 //- (BOOL)validateEvent:(id*)value_ error:(NSError**)error_;
@@ -61,6 +73,12 @@ extern const struct EventImagesFetchedProperties {
 
 - (NSData*)primitiveEvent_image;
 - (void)setPrimitiveEvent_image:(NSData*)value;
+
+
+
+
+- (NSString*)primitiveImageUrl;
+- (void)setPrimitiveImageUrl:(NSString*)value;
 
 
 
