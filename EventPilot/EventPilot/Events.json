@@ -1,5 +1,5 @@
 {
-    "item": [
+    "items": [
              {
              "id": "0001",
              "event-type": "Concert",
@@ -8,26 +8,20 @@
              "postcode": "TW15 3PS",
              "date": "2014-04-21T18:25:43-05:00",
              "price": "$40.00",
-             "Categories" : "Groups",
+             "categories" : [
+                             "Groups",
+                             "kids frindly"
+                             ],
              "coordinate": {
              "latitude" : 51.431549,
              "longitude": -0.474782
              },
-             "map-image": {
-             "url": "images/00011.jpg",
-             "width": 200,
-             "height": 200
-             },
-             "image": {
-             "url": "images/0001.jpg",
-             "width": 200,
-             "height": 200
-             },
-             "thumbnail": {
-             "url": "images/thumbnails/0001.jpg",
-             "width": 32,
-             "height": 32
-             }
+             "map-image":"images/00011.jpg",
+             "event-images" : [
+                               "images/0001.jpg",
+                               "images/0002.jpg"
+                               ],
+             "thumbnail": "images/thumbnails/0001.jpg"
              },
              {
              "id": "0002",
@@ -37,26 +31,20 @@
              "postcode": "EC4A 2AH",
              "date": "2014-05-21T18:25:43-05:00",
              "price": "$60.00",
-             "Categories" : "Kids friendly",
+             "categories" : [
+                             "Groups",
+                             "kids frindly"
+                             ],
              "coordinate": {
              "latitude" : 51.431549,
              "longitude": -0.474782
              },
-             "map-image": {
-             "url": "images/00011.jpg",
-             "width": 200,
-             "height": 200
-             },
-             "image": {
-             "url": "images/0001.jpg",
-             "width": 200,
-             "height": 200
-             },
-             "thumbnail": {
-             "url": "images/thumbnails/0001.jpg",
-             "width": 32,
-             "height": 32
-             }
+             "map-image":"images/00011.jpg",
+             "event-images" : [
+                               "images/0001.jpg",
+                               "images/0002.jpg"
+                               ],
+             "thumbnail": "images/thumbnails/0001.jpg"
              }
              ]
 }

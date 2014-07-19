@@ -10,6 +10,11 @@
 
 #import "DAMasterViewController.h"
 #import "DACoreDataHandler.h"
+#import "DADownloadService.h"
+#import "DAResultResponse.h"
+
+NSString * const Event_Info_Base_URL = @"https://www.dropbox.com/s/lth2vmuaa9am296/Events.json";
+
 
 @implementation DAAppDelegate
 
@@ -30,7 +35,8 @@
     }
     
     [DACoreDataHandler setupCoreData];
-
+    
+    [self requestForDownLoad];
     return YES;
 }
 							
@@ -70,4 +76,10 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+
+-(void) requestForDownLoad
+{
+    DAResultResponse * request = [[DAResultResponse alloc] initWithRequestID:@"location" andURL:Event_Info_Base_URL];
+    [[DADownloadService shared] requestForADownload:request];
+}
 @end

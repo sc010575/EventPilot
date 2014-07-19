@@ -4,12 +4,18 @@
 #import "_Event.h"
 
 const struct EventAttributes EventAttributes = {
-	.eventId = @"eventId",
-	.event_Type = @"event_Type",
+	.address = @"address",
+	.event_Id = @"event_Id",
+	.mapImage = @"mapImage",
+	.name = @"name",
+	.postalCode = @"postalCode",
 	.timeStamp = @"timeStamp",
 };
 
 const struct EventRelationships EventRelationships = {
+	.category = @"category",
+	.coordinate = @"coordinate",
+	.eventimages = @"eventimages",
 };
 
 const struct EventFetchedProperties EventFetchedProperties = {
@@ -22,16 +28,16 @@ const struct EventFetchedProperties EventFetchedProperties = {
 
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:moc_];
+	return [NSEntityDescription insertNewObjectForEntityForName:@"Events" inManagedObjectContext:moc_];
 }
 
 + (NSString*)entityName {
-	return @"Event";
+	return @"Events";
 }
 
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_ {
 	NSParameterAssert(moc_);
-	return [NSEntityDescription entityForName:@"Event" inManagedObjectContext:moc_];
+	return [NSEntityDescription entityForName:@"Events" inManagedObjectContext:moc_];
 }
 
 - (EventID*)objectID {
@@ -41,11 +47,6 @@ const struct EventFetchedProperties EventFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"eventIdValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"eventId"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
 
 	return keyPaths;
 }
@@ -53,33 +54,35 @@ const struct EventFetchedProperties EventFetchedProperties = {
 
 
 
-@dynamic eventId;
-
-
-
-- (int16_t)eventIdValue {
-	NSNumber *result = [self eventId];
-	return [result shortValue];
-}
-
-- (void)setEventIdValue:(int16_t)value_ {
-	[self setEventId:[NSNumber numberWithShort:value_]];
-}
-
-- (int16_t)primitiveEventIdValue {
-	NSNumber *result = [self primitiveEventId];
-	return [result shortValue];
-}
-
-- (void)setPrimitiveEventIdValue:(int16_t)value_ {
-	[self setPrimitiveEventId:[NSNumber numberWithShort:value_]];
-}
+@dynamic address;
 
 
 
 
 
-@dynamic event_Type;
+
+@dynamic event_Id;
+
+
+
+
+
+
+@dynamic mapImage;
+
+
+
+
+
+
+@dynamic name;
+
+
+
+
+
+
+@dynamic postalCode;
 
 
 
@@ -92,6 +95,36 @@ const struct EventFetchedProperties EventFetchedProperties = {
 
 
 
+
+@dynamic category;
+
+	
+- (NSMutableSet*)categorySet {
+	[self willAccessValueForKey:@"category"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"category"];
+  
+	[self didAccessValueForKey:@"category"];
+	return result;
+}
+	
+
+@dynamic coordinate;
+
+	
+
+@dynamic eventimages;
+
+	
+- (NSMutableSet*)eventimagesSet {
+	[self willAccessValueForKey:@"eventimages"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"eventimages"];
+  
+	[self didAccessValueForKey:@"eventimages"];
+	return result;
+}
+	
 
 
 
