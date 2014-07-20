@@ -11,12 +11,13 @@
 #import "AFURLSessionManager.h"
 #import "DAResultResponse.h"
 #import "DAResourceLoader.h"
-#import "DAEventParser.h"
+#import "DAEventParseOperation.h"
 
 
 @interface DADownloadService ()
 @property (strong, nonatomic) DAResultResponse *results;
 @property (strong, nonatomic) NSMutableArray *downloadQueue;
+@property (nonatomic) NSOperationQueue *parseQueue;     // queue that manages our NSOperation
 @property (assign, nonatomic) BOOL isBusy;
 -(void) start;
 -(void) update;
@@ -43,6 +44,8 @@
     {
         self.operationQueue = [[NSOperationQueue alloc] init];
         self.operationQueue.maxConcurrentOperationCount = 3;
+        self.parseQueue = [NSOperationQueue new];
+    //    [self.parseQueue addObserver:self forKeyPath:@"operationCount" options:0 context:NULL];
         _results = [DAResultResponse alloc];
         _downloadQueue = [NSMutableArray array];
         self.isBusy = NO;
@@ -126,11 +129,17 @@
         }
         else{
             //parse the file and load it to the database
-            [DAEventParser parseEventWithBlock:^(BOOL success) {
-                //indicated that the event parsing is successful
+            DAEventParseOperation *eventPArseOperation = [[DAEventParseOperation alloc] initWithBlock:^(BOOL success) {
+                if(success)
+                    //show the result to the view controller
+                    NSLog(@"Update view controller");
             }];
+            
+            //add to the queue
+            [self.parseQueue addOperation:eventPArseOperation];
         }
         [self update];
+
     }];
     [downloadTask resume];
 }
@@ -141,5 +150,22 @@
     [_downloadQueue addObject:URL];
     [self start];
 }
+
+
+// observe the queue's operationCount, stop activity indicator if there is no operatation ongoing.
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (object == self.parseQueue && [keyPath isEqualToString:@"operationCount"]) {
+        
+        if (self.parseQueue.operationCount == 0) {
+            NSLog(@"Time to send response");
+            //send notification that download complete
+        }
+    }
+//    else {
+//        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+//    }
+}
+
 
 @end

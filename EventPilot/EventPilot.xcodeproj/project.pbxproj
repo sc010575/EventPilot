@@ -56,7 +56,7 @@
 		C5CB50681934969400727D13 /* DACoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB50671934969400727D13 /* DACoreDataHandler.m */; };
 		C5CB506B193497FD00727D13 /* NSManagedObjectContext+ContextSwitching.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB5069193497FD00727D13 /* NSManagedObjectContext+ContextSwitching.m */; };
 		C5D3FD98197AA2DA00701FBD /* DAResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D3FD97197AA2DA00701FBD /* DAResourceLoader.m */; };
-		C5D3FD9B197AB72B00701FBD /* DAEventParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D3FD9A197AB72B00701FBD /* DAEventParser.m */; };
+		C5D3FD9B197AB72B00701FBD /* DAEventParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D3FD9A197AB72B00701FBD /* DAEventParseOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,8 +123,8 @@
 		C5CB506A193497FD00727D13 /* NSManagedObjectContext+ContextSwitching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+ContextSwitching.h"; sourceTree = "<group>"; };
 		C5D3FD96197AA2DA00701FBD /* DAResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAResourceLoader.h; sourceTree = "<group>"; };
 		C5D3FD97197AA2DA00701FBD /* DAResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAResourceLoader.m; sourceTree = "<group>"; };
-		C5D3FD99197AB72B00701FBD /* DAEventParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAEventParser.h; sourceTree = "<group>"; };
-		C5D3FD9A197AB72B00701FBD /* DAEventParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAEventParser.m; sourceTree = "<group>"; };
+		C5D3FD99197AB72B00701FBD /* DAEventParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAEventParseOperation.h; sourceTree = "<group>"; };
+		C5D3FD9A197AB72B00701FBD /* DAEventParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAEventParseOperation.m; sourceTree = "<group>"; };
 		D37A927DCFE64CA7A36BDD58 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB597DFDB3064B8F9D1FF026 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -316,8 +316,8 @@
 				C5CB506A193497FD00727D13 /* NSManagedObjectContext+ContextSwitching.h */,
 				C5CB50661934969400727D13 /* DACoreDataHandler.h */,
 				C5CB50671934969400727D13 /* DACoreDataHandler.m */,
-				C5D3FD99197AB72B00701FBD /* DAEventParser.h */,
-				C5D3FD9A197AB72B00701FBD /* DAEventParser.m */,
+				C5D3FD99197AB72B00701FBD /* DAEventParseOperation.h */,
+				C5D3FD9A197AB72B00701FBD /* DAEventParseOperation.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -498,7 +498,7 @@
 				C5CB503E19331B3F00727D13 /* DAMasterViewController.m in Sources */,
 				C5572FEA1939EF1D0046D3C8 /* _Event.m in Sources */,
 				C5CB506B193497FD00727D13 /* NSManagedObjectContext+ContextSwitching.m in Sources */,
-				C5D3FD9B197AB72B00701FBD /* DAEventParser.m in Sources */,
+				C5D3FD9B197AB72B00701FBD /* DAEventParseOperation.m in Sources */,
 				C5572FE11939E0EE0046D3C8 /* DADownloadService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
