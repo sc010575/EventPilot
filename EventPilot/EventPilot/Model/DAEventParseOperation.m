@@ -12,20 +12,27 @@
 #import "Categories.h"
 #import "Coordinates.h"
 #import "EventImages.h"
+#import "DAImageDownloader.h"
 
 @interface DAEventParseOperation()
 
 @property (strong, nonatomic)ParseCompletionBlock completionBlock;
 
+@property (strong, nonatomic)NSOperationQueue * downloadImageQueue;
+
 @end
 
 @implementation DAEventParseOperation
+@synthesize completionBlock = _completionBlock;
 
 -(id) initWithBlock:(ParseCompletionBlock) completionBlock
 {
     self = [super init];
     if (self) {
         _completionBlock = completionBlock;
+        _downloadImageQueue = [[NSOperationQueue alloc] init];
+        _downloadImageQueue.name = @"Download Queue";
+        _downloadImageQueue.maxConcurrentOperationCount = 3;
     }
     return self;
     
@@ -51,7 +58,7 @@
 
 -(void) parseEventWithContext:(NSManagedObjectContext*)context
 {
-    NSDictionary * parseJSON = [DAResourceLoader JSONWithFileName:@"Events"];
+    NSDictionary * parseJSON = [DAResourceLoader readJSONFromDocument:@"document.json"];
     
     NSArray *eventArray = parseJSON[@"items"];
     for (NSDictionary * individualEvent in eventArray)
@@ -119,6 +126,11 @@
             images.imageUrl = imageUrl;
             [event addEventimagesObject:images];
         }
+        
+        //Download Images
+        DAImageDownloader* imageDownLoader = [[DAImageDownloader alloc] initWithEvent:event];
+        [_downloadImageQueue addOperation:imageDownLoader];
+        
     }
 }
 @end

@@ -12,6 +12,7 @@
 #import "DAResultResponse.h"
 #import "DAResourceLoader.h"
 #import "DAEventParseOperation.h"
+#import "Dropbox.h"
 
 
 @interface DADownloadService ()
@@ -82,10 +83,11 @@
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    operation.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+//    operation.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        tempResult.eventLists = (NSArray*) responseObject;
-        self.results = tempResult;
+        NSDictionary * resultDict = (NSDictionary*)responseObject;
+    //    tempResult.eventLists = (NSArray*) responseObject;
+    //    self.results = tempResult;
         [self update];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -107,11 +109,18 @@
     _isBusy = YES;
     __block DAResultResponse * tempResult = response;
     NSURL *url = [NSURL URLWithString:tempResult.URL];
+    
+    //configure session
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    // 2
+    [configuration setHTTPAdditionalHeaders:@{@"Authorization": [Dropbox apiAuthorizationHeader]}];
+
+    
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
+  
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
         NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
         return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];

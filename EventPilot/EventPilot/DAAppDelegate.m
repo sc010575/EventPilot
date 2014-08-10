@@ -12,32 +12,36 @@
 #import "DACoreDataHandler.h"
 #import "DADownloadService.h"
 #import "DAResultResponse.h"
+#import "Dropbox.h"
+#import "OAuthLoginViewController.h"
 
-NSString * const Event_Info_Base_URL = @"https://www.dropbox.com/s/lth2vmuaa9am296/Events.json";
-
+NSString * const Event_Info_Base_URL = @"https://api-content.dropbox.com/1/files/dropbox//EventPilot/document.json";
 
 @implementation DAAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
-        
-        UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
-        DAMasterViewController *controller = (DAMasterViewController *)masterNavigationController.topViewController;
-    } else {
-        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-        DAMasterViewController *controller = (DAMasterViewController *)navigationController.topViewController;
-    }
-    
+    //SetUp CoreData
     [DACoreDataHandler setupCoreData];
+
     
-    [self requestForDownLoad];
+    // Override point for customization after application launch.
+    NSString *token = [[NSUserDefaults standardUserDefaults] valueForKey:accessToken];
+    
+    NSString *controllerId = token ? @"evenDetails" : @"Login";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *initViewController = [storyboard instantiateViewControllerWithIdentifier:controllerId];
+    
+    // always assumes token is valid - should probably check in a real app
+    if (token) {
+        [self requestForDownLoad];
+        [self.window setRootViewController:initViewController];
+    } else {
+        [(UINavigationController *)self.window.rootViewController pushViewController:initViewController animated:NO];
+    }
     return YES;
+
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -65,6 +69,61 @@ NSString * const Event_Info_Base_URL = @"https://www.dropbox.com/s/lth2vmuaa9am2
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Saves changes in the application's managed object context before the application terminates.
+}
+
+
+#pragma mark - OAuth login flow and url scheme handling
+
+-(BOOL)application:(UIApplication *)application
+           openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+        annotation:(id)annotation
+{
+    if ([[url scheme] isEqualToString:@"eventpilot"]) {
+        [self exchangeRequestTokenForAccessToken];
+    }
+    return NO;
+}
+
+- (void)exchangeRequestTokenForAccessToken
+{
+    // OAUTH Step 3 - exchange request token for user access token
+    [Dropbox exchangeTokenForUserAccessTokenURLWithCompletionHandler:^(NSData *data,NSURLResponse *response,NSError *error) {
+        if (!error) {
+            NSHTTPURLResponse *httpResp = (NSHTTPURLResponse*) response;
+            if (httpResp.statusCode == 200) {
+                
+                //REquest for download Json File
+                [self requestForDownLoad];
+                
+                NSString *response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                NSDictionary *accessTokenDict = [Dropbox dictionaryFromOAuthResponseString:response];
+                
+                [[NSUserDefaults standardUserDefaults] setObject:accessTokenDict[oauthTokenKey] forKey:accessToken];
+                [[NSUserDefaults standardUserDefaults] setObject:accessTokenDict[oauthTokenKeySecret] forKey:accessTokenSecret];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                // now load main part of application
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    NSString *segueId = @"evenDetails";
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    UITabBarController *initViewController = [storyboard instantiateViewControllerWithIdentifier:segueId];
+                    
+                    UINavigationController *nav = (UINavigationController *) self.window.rootViewController;
+                    nav.navigationBar.hidden = YES;
+                    [nav pushViewController:initViewController animated:NO];
+                });
+                
+            } else {
+                // HANDLE BAD RESPONSE //
+                NSLog(@"exchange request for access token unexpected response %@",
+                      [NSHTTPURLResponse localizedStringForStatusCode:httpResp.statusCode]);
+            }
+        } else {
+            // ALWAYS HANDLE ERRORS :-] //
+        }
+    }];
 }
 
 

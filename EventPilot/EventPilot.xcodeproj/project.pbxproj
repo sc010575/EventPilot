@@ -34,6 +34,12 @@
 		C5572FFE193A20D80046D3C8 /* EventImages.m in Sources */ = {isa = PBXBuildFile; fileRef = C5572FFC193A20D80046D3C8 /* EventImages.m */; };
 		C5573003193A21E00046D3C8 /* _Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = C5573000193A21E00046D3C8 /* _Categories.m */; };
 		C5573004193A21E00046D3C8 /* Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = C5573002193A21E00046D3C8 /* Categories.m */; };
+		C5A0D94D198BD57900D49021 /* document.json in Resources */ = {isa = PBXBuildFile; fileRef = C5A0D94C198BD57900D49021 /* document.json */; };
+		C5AD45311996077000F85400 /* Dropbox.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AD452E1996077000F85400 /* Dropbox.m */; };
+		C5AD45321996077000F85400 /* Dropbox.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AD452E1996077000F85400 /* Dropbox.m */; };
+		C5AD45331996077000F85400 /* OAuthLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AD45301996077000F85400 /* OAuthLoginViewController.m */; };
+		C5AD45341996077000F85400 /* OAuthLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AD45301996077000F85400 /* OAuthLoginViewController.m */; };
+		C5B9C10D197D763000C8F5DE /* DAImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B9C10C197D763000C8F5DE /* DAImageDownloader.m */; };
 		C5CB502019331B3E00727D13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB501F19331B3E00727D13 /* Foundation.framework */; };
 		C5CB502219331B3E00727D13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB502119331B3E00727D13 /* CoreGraphics.framework */; };
 		C5CB502419331B3E00727D13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB502319331B3E00727D13 /* UIKit.framework */; };
@@ -41,8 +47,7 @@
 		C5CB502C19331B3E00727D13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5CB502A19331B3E00727D13 /* InfoPlist.strings */; };
 		C5CB502E19331B3E00727D13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB502D19331B3E00727D13 /* main.m */; };
 		C5CB503219331B3E00727D13 /* DAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB503119331B3E00727D13 /* DAAppDelegate.m */; };
-		C5CB503519331B3F00727D13 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5CB503319331B3F00727D13 /* Main_iPhone.storyboard */; };
-		C5CB503819331B3F00727D13 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5CB503619331B3F00727D13 /* Main_iPad.storyboard */; };
+		C5CB503519331B3F00727D13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5CB503319331B3F00727D13 /* Main.storyboard */; };
 		C5CB503E19331B3F00727D13 /* DAMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB503D19331B3F00727D13 /* DAMasterViewController.m */; };
 		C5CB504119331B3F00727D13 /* DADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB504019331B3F00727D13 /* DADetailViewController.m */; };
 		C5CB504319331B3F00727D13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5CB504219331B3F00727D13 /* Images.xcassets */; };
@@ -52,7 +57,6 @@
 		C5CB504D19331B3F00727D13 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB502519331B3E00727D13 /* CoreData.framework */; };
 		C5CB505519331B3F00727D13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5CB505319331B3F00727D13 /* InfoPlist.strings */; };
 		C5CB505719331B3F00727D13 /* EventPilotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB505619331B3F00727D13 /* EventPilotTests.m */; };
-		C5CB50611933307900727D13 /* Events.json in Resources */ = {isa = PBXBuildFile; fileRef = C5CB50601933307900727D13 /* Events.json */; };
 		C5CB50681934969400727D13 /* DACoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB50671934969400727D13 /* DACoreDataHandler.m */; };
 		C5CB506B193497FD00727D13 /* NSManagedObjectContext+ContextSwitching.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB5069193497FD00727D13 /* NSManagedObjectContext+ContextSwitching.m */; };
 		C5D3FD98197AA2DA00701FBD /* DAResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D3FD97197AA2DA00701FBD /* DAResourceLoader.m */; };
@@ -93,6 +97,13 @@
 		C5573000193A21E00046D3C8 /* _Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Categories.m; sourceTree = "<group>"; };
 		C5573001193A21E00046D3C8 /* Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Categories.h; sourceTree = "<group>"; };
 		C5573002193A21E00046D3C8 /* Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Categories.m; sourceTree = "<group>"; };
+		C5A0D94C198BD57900D49021 /* document.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = document.json; sourceTree = "<group>"; };
+		C5AD452D1996077000F85400 /* Dropbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dropbox.h; sourceTree = "<group>"; };
+		C5AD452E1996077000F85400 /* Dropbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dropbox.m; sourceTree = "<group>"; };
+		C5AD452F1996077000F85400 /* OAuthLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthLoginViewController.h; sourceTree = "<group>"; };
+		C5AD45301996077000F85400 /* OAuthLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthLoginViewController.m; sourceTree = "<group>"; };
+		C5B9C10B197D763000C8F5DE /* DAImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAImageDownloader.h; path = EventPilot/DownloadService/DAImageDownloader.h; sourceTree = SOURCE_ROOT; };
+		C5B9C10C197D763000C8F5DE /* DAImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAImageDownloader.m; path = EventPilot/DownloadService/DAImageDownloader.m; sourceTree = SOURCE_ROOT; };
 		C5CB501C19331B3E00727D13 /* EventPilot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventPilot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5CB501F19331B3E00727D13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C5CB502119331B3E00727D13 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -104,8 +115,7 @@
 		C5CB502F19331B3E00727D13 /* EventPilot-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EventPilot-Prefix.pch"; sourceTree = "<group>"; };
 		C5CB503019331B3E00727D13 /* DAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DAAppDelegate.h; path = ../DAAppDelegate.h; sourceTree = "<group>"; };
 		C5CB503119331B3E00727D13 /* DAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DAAppDelegate.m; path = ../DAAppDelegate.m; sourceTree = "<group>"; };
-		C5CB503419331B3F00727D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		C5CB503719331B3F00727D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		C5CB503419331B3F00727D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C5CB503C19331B3F00727D13 /* DAMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DAMasterViewController.h; path = ../DAMasterViewController.h; sourceTree = "<group>"; };
 		C5CB503D19331B3F00727D13 /* DAMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DAMasterViewController.m; path = ../DAMasterViewController.m; sourceTree = "<group>"; };
 		C5CB503F19331B3F00727D13 /* DADetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DADetailViewController.h; path = ../DADetailViewController.h; sourceTree = "<group>"; };
@@ -116,7 +126,6 @@
 		C5CB505219331B3F00727D13 /* EventPilotTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EventPilotTests-Info.plist"; sourceTree = "<group>"; };
 		C5CB505419331B3F00727D13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C5CB505619331B3F00727D13 /* EventPilotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventPilotTests.m; sourceTree = "<group>"; };
-		C5CB50601933307900727D13 /* Events.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Events.json; sourceTree = "<group>"; };
 		C5CB50661934969400727D13 /* DACoreDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACoreDataHandler.h; sourceTree = "<group>"; };
 		C5CB50671934969400727D13 /* DACoreDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACoreDataHandler.m; sourceTree = "<group>"; };
 		C5CB5069193497FD00727D13 /* NSManagedObjectContext+ContextSwitching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+ContextSwitching.m"; sourceTree = "<group>"; };
@@ -172,6 +181,8 @@
 				C5572FDE1939E0EE0046D3C8 /* DADownloadService.m */,
 				C5572FDF1939E0EE0046D3C8 /* DAResultResponse.h */,
 				C5572FE01939E0EE0046D3C8 /* DAResultResponse.m */,
+				C5B9C10B197D763000C8F5DE /* DAImageDownloader.h */,
+				C5B9C10C197D763000C8F5DE /* DAImageDownloader.m */,
 			);
 			path = DownloadService;
 			sourceTree = "<group>";
@@ -197,6 +208,17 @@
 				C5572FE71939EF1D0046D3C8 /* _Event.m */,
 			);
 			name = contextObjects;
+			sourceTree = "<group>";
+		};
+		C5AD452C1996077000F85400 /* DropBox */ = {
+			isa = PBXGroup;
+			children = (
+				C5AD452D1996077000F85400 /* Dropbox.h */,
+				C5AD452E1996077000F85400 /* Dropbox.m */,
+				C5AD452F1996077000F85400 /* OAuthLoginViewController.h */,
+				C5AD45301996077000F85400 /* OAuthLoginViewController.m */,
+			);
+			path = DropBox;
 			sourceTree = "<group>";
 		};
 		C5CB501319331B3E00727D13 = {
@@ -235,6 +257,7 @@
 		C5CB502719331B3E00727D13 /* EventPilot */ = {
 			isa = PBXGroup;
 			children = (
+				C5AD452C1996077000F85400 /* DropBox */,
 				C5D3FD95197AA2DA00701FBD /* ResourceLoader */,
 				C5572FDC1939E0EE0046D3C8 /* DownloadService */,
 				C5127892193670810018AC96 /* Common */,
@@ -244,7 +267,6 @@
 				C5CB50651934965D00727D13 /* Model */,
 				C5CB504219331B3F00727D13 /* Images.xcassets */,
 				C5CB502819331B3E00727D13 /* Supporting Files */,
-				C5CB50601933307900727D13 /* Events.json */,
 			);
 			path = EventPilot;
 			sourceTree = "<group>";
@@ -281,8 +303,7 @@
 		C5CB50621934965D00727D13 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				C5CB503319331B3F00727D13 /* Main_iPhone.storyboard */,
-				C5CB503619331B3F00727D13 /* Main_iPad.storyboard */,
+				C5CB503319331B3F00727D13 /* Main.storyboard */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -325,6 +346,7 @@
 		C5D3FD95197AA2DA00701FBD /* ResourceLoader */ = {
 			isa = PBXGroup;
 			children = (
+				C5A0D94C198BD57900D49021 /* document.json */,
 				C5D3FD96197AA2DA00701FBD /* DAResourceLoader.h */,
 				C5D3FD97197AA2DA00701FBD /* DAResourceLoader.m */,
 			);
@@ -411,10 +433,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5CB503819331B3F00727D13 /* Main_iPad.storyboard in Resources */,
+				C5A0D94D198BD57900D49021 /* document.json in Resources */,
 				C5CB504319331B3F00727D13 /* Images.xcassets in Resources */,
-				C5CB50611933307900727D13 /* Events.json in Resources */,
-				C5CB503519331B3F00727D13 /* Main_iPhone.storyboard in Resources */,
+				C5CB503519331B3F00727D13 /* Main.storyboard in Resources */,
 				C5CB502C19331B3E00727D13 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +514,8 @@
 				C5127895193670AA0018AC96 /* DATableViewCell.m in Sources */,
 				C5CB503219331B3E00727D13 /* DAAppDelegate.m in Sources */,
 				C5572FFD193A20D80046D3C8 /* Coordinates.m in Sources */,
+				C5B9C10D197D763000C8F5DE /* DAImageDownloader.m in Sources */,
+				C5AD45311996077000F85400 /* Dropbox.m in Sources */,
 				C5573004193A21E00046D3C8 /* Categories.m in Sources */,
 				C5D3FD98197AA2DA00701FBD /* DAResourceLoader.m in Sources */,
 				C5CB503E19331B3F00727D13 /* DAMasterViewController.m in Sources */,
@@ -500,6 +523,7 @@
 				C5CB506B193497FD00727D13 /* NSManagedObjectContext+ContextSwitching.m in Sources */,
 				C5D3FD9B197AB72B00701FBD /* DAEventParseOperation.m in Sources */,
 				C5572FE11939E0EE0046D3C8 /* DADownloadService.m in Sources */,
+				C5AD45331996077000F85400 /* OAuthLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,7 +531,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5AD45321996077000F85400 /* Dropbox.m in Sources */,
 				C5CB505719331B3F00727D13 /* EventPilotTests.m in Sources */,
+				C5AD45341996077000F85400 /* OAuthLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,21 +556,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		C5CB503319331B3F00727D13 /* Main_iPhone.storyboard */ = {
+		C5CB503319331B3F00727D13 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C5CB503419331B3F00727D13 /* Base */,
 			);
-			name = Main_iPhone.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		C5CB503619331B3F00727D13 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C5CB503719331B3F00727D13 /* Base */,
-			);
-			name = Main_iPad.storyboard;
+			name = Main.storyboard;
 			path = ..;
 			sourceTree = "<group>";
 		};

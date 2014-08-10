@@ -12,7 +12,7 @@
 
 
 
-+ (id)JSONWithFileName:(NSString*)fileName
++ (id)JSONWithFileNameBundle:(NSString*)fileName
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"json"];
 
@@ -55,6 +55,35 @@
     return string;
 }
 
++ (id) readJSONFromDocument:(NSString*)fileName
+{
 
+   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:fileName];
+
+    
+    if (filePath == nil) {
+        NSLog(@"path is wrong");
+        return nil;
+    }
+    
+    NSError *error;
+    NSData *json = [NSData dataWithContentsOfFile:filePath options:kNilOptions error:&error];
+    
+    if (error) {
+        NSLog(@"Error Reading JSON %@", error);
+        return nil;
+    }
+
+    id object = [NSJSONSerialization JSONObjectWithData:json options:kNilOptions error:&error];
+    if (error) {
+        NSLog(@"Error Parsing JSON %@", error);
+        return nil;
+    }
+    
+    return object;
+}
 
 @end

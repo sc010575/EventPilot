@@ -10,7 +10,8 @@
 
 @interface DAResourceLoader : NSObject
 
-+ (id)JSONWithFileName:(NSString*)fileName;
++ (id)JSONWithFileNameBundle:(NSString*)fileName;
 + (id)stringWithFileName:(NSString*)fileName ofType:(NSString*)type;
++ (id)readJSONFromDocument:(NSString*)fileName;
 
 @end
