@@ -6,10 +6,11 @@
 
 extern const struct EventAttributes {
 	__unsafe_unretained NSString *address;
+	__unsafe_unretained NSString *eventDesc;
 	__unsafe_unretained NSString *event_Id;
-	__unsafe_unretained NSString *mapImage;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *postalCode;
+	__unsafe_unretained NSString *thambnail;
 	__unsafe_unretained NSString *timeStamp;
 	__unsafe_unretained NSString *type;
 } EventAttributes;
@@ -26,6 +27,7 @@ extern const struct EventFetchedProperties {
 @class Categories;
 @class Coordinates;
 @class EventImages;
+
 
 
 
@@ -58,21 +60,21 @@ extern const struct EventFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* eventDesc;
+
+
+
+//- (BOOL)validateEventDesc:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* event_Id;
 
 
 
 //- (BOOL)validateEvent_Id:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSData* mapImage;
-
-
-
-//- (BOOL)validateMapImage:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -93,6 +95,16 @@ extern const struct EventFetchedProperties {
 
 
 //- (BOOL)validatePostalCode:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSData* thambnail;
+
+
+
+//- (BOOL)validateThambnail:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -165,14 +177,14 @@ extern const struct EventFetchedProperties {
 
 
 
+- (NSString*)primitiveEventDesc;
+- (void)setPrimitiveEventDesc:(NSString*)value;
+
+
+
+
 - (NSString*)primitiveEvent_Id;
 - (void)setPrimitiveEvent_Id:(NSString*)value;
-
-
-
-
-- (NSData*)primitiveMapImage;
-- (void)setPrimitiveMapImage:(NSData*)value;
 
 
 
@@ -185,6 +197,12 @@ extern const struct EventFetchedProperties {
 
 - (NSString*)primitivePostalCode;
 - (void)setPrimitivePostalCode:(NSString*)value;
+
+
+
+
+- (NSData*)primitiveThambnail;
+- (void)setPrimitiveThambnail:(NSData*)value;
 
 
 

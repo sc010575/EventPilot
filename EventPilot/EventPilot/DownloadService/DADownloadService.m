@@ -113,7 +113,7 @@
     //configure session
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
-    // 2
+    // Add Authorization meta data
     [configuration setHTTPAdditionalHeaders:@{@"Authorization": [Dropbox apiAuthorizationHeader]}];
 
     
@@ -138,12 +138,7 @@
         }
         else{
             //parse the file and load it to the database
-            DAEventParseOperation *eventPArseOperation = [[DAEventParseOperation alloc] initWithBlock:^(BOOL success) {
-                if(success)
-                    //show the result to the view controller
-                    NSLog(@"Update view controller");
-            }];
-            
+            DAEventParseOperation *eventPArseOperation = [[DAEventParseOperation alloc] init];
             //add to the queue
             [self.parseQueue addOperation:eventPArseOperation];
         }

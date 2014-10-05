@@ -77,7 +77,7 @@
         return nil;
     }
 
-    id object = [NSJSONSerialization JSONObjectWithData:json options:kNilOptions error:&error];
+    id object = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:&error];
     if (error) {
         NSLog(@"Error Parsing JSON %@", error);
         return nil;

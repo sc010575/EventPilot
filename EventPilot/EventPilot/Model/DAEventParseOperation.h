@@ -12,7 +12,4 @@ typedef void(^ParseCompletionBlock)(BOOL success);
 
 @interface DAEventParseOperation : NSOperation
 
--(id) initWithBlock:(ParseCompletionBlock) completionBlock;
-
-
 @end

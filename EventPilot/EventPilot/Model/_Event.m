@@ -5,10 +5,11 @@
 
 const struct EventAttributes EventAttributes = {
 	.address = @"address",
+	.eventDesc = @"eventDesc",
 	.event_Id = @"event_Id",
-	.mapImage = @"mapImage",
 	.name = @"name",
 	.postalCode = @"postalCode",
+	.thambnail = @"thambnail",
 	.timeStamp = @"timeStamp",
 	.type = @"type",
 };
@@ -62,14 +63,14 @@ const struct EventFetchedProperties EventFetchedProperties = {
 
 
 
+@dynamic eventDesc;
+
+
+
+
+
+
 @dynamic event_Id;
-
-
-
-
-
-
-@dynamic mapImage;
 
 
 
@@ -84,6 +85,13 @@ const struct EventFetchedProperties EventFetchedProperties = {
 
 
 @dynamic postalCode;
+
+
+
+
+
+
+@dynamic thambnail;
 
 
 

@@ -3,6 +3,7 @@ platform :ios, '7.0'
 pod 'AFNetworking', '~> 2.0'
 pod 'MagicalRecord/Shorthand'
 pod 'KCOrderedAccessorFix'
+pod 'libextobjc'
 
 
 #This disables the verbose Magical Record Logging

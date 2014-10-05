@@ -19,16 +19,53 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - KCOrderedAccessorFix (0.0.1)
+  - libextobjc (0.4):
+    - libextobjc/EXTADT
+    - libextobjc/EXTConcreteProtocol
+    - libextobjc/EXTKeyPathCoding
+    - libextobjc/EXTNil
+    - libextobjc/EXTSafeCategory
+    - libextobjc/EXTScope
+    - libextobjc/EXTSelectorChecking
+    - libextobjc/EXTSynthesize
+    - libextobjc/NSInvocation+EXT
+    - libextobjc/NSMethodSignature+EXT
+    - libextobjc/RuntimeExtensions
+    - libextobjc/UmbrellaHeader
+  - libextobjc/EXTADT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTConcreteProtocol (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTKeyPathCoding (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTNil (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSafeCategory (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSelectorChecking (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSynthesize (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSInvocation+EXT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSMethodSignature+EXT (0.4):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4)
+  - libextobjc/UmbrellaHeader (0.4)
   - MagicalRecord/Shorthand (2.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - KCOrderedAccessorFix
+  - libextobjc
   - MagicalRecord/Shorthand
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   KCOrderedAccessorFix: d177d657cbe2b3b070540d6b1652e8534c8bceae
+  libextobjc: ba42e4111f433273a886cd54f0ddaddb7f62f82f
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
 
-COCOAPODS: 0.32.1
+COCOAPODS: 0.33.1

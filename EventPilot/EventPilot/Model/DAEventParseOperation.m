@@ -16,28 +16,11 @@
 
 @interface DAEventParseOperation()
 
-@property (strong, nonatomic)ParseCompletionBlock completionBlock;
-
-@property (strong, nonatomic)NSOperationQueue * downloadImageQueue;
 
 @end
 
 @implementation DAEventParseOperation
-@synthesize completionBlock = _completionBlock;
 
--(id) initWithBlock:(ParseCompletionBlock) completionBlock
-{
-    self = [super init];
-    if (self) {
-        _completionBlock = completionBlock;
-        _downloadImageQueue = [[NSOperationQueue alloc] init];
-        _downloadImageQueue.name = @"Download Queue";
-        _downloadImageQueue.maxConcurrentOperationCount = 3;
-    }
-    return self;
-    
-
-}
 //main
 // The main function for this NSOperation, to start the parsing.
 - (void)main {
@@ -45,12 +28,8 @@
     // Creating context in main function here make sure the context is tied to current thread.
     [MagicalRecord saveUsingCurrentThreadContextWithBlock:^(NSManagedObjectContext *localContext) {
         [self parseEventWithContext:localContext];
-    } completion:^(BOOL success, NSError *error) {
-        NSLog(@"success");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            _completionBlock(YES);
-        });
-    }];
+    } completion:nil
+    ];
 
     
 }
@@ -81,11 +60,12 @@
     if([self isThisEventIsNew:eventData[@"name"] inContext:context]){
         
         //OK new event add it to the database
-        Event *event = [Event MR_createInContext:context];
+        __block Event *event = [Event MR_createInContext:context];
         event.event_Id = eventData[@"id"];
         event.name = eventData[@"name"];
         event.postalCode = eventData[@"postcode"];
         event.address = eventData[@"location"];
+        event.eventDesc = eventData[@"description"];
         
         //get the date
         NSString *dateString = eventData[@"date"];;
@@ -117,20 +97,36 @@
         coordinates.latitude  = cordDict[@"latitude"];
         event.coordinate = coordinates;
         
-        //store event Images
-        NSArray *eventImageArray = eventData[@"event-images"];
+//        //store event Images
+//        NSArray *eventImageArray = eventData[@"event-images"];
+//        
+//        for(NSString *imageUrl in eventImageArray)
+//        {
+//            EventImages * images = [EventImages MR_createInContext:context];
+//            images.imageUrl = imageUrl;
+//            [event addEventimagesObject:images];
+//        }
         
-        for(NSString *imageUrl in eventImageArray)
-        {
-            EventImages * images = [EventImages MR_createInContext:context];
-            images.imageUrl = imageUrl;
-            [event addEventimagesObject:images];
-        }
-        
-        //Download Images
-        DAImageDownloader* imageDownLoader = [[DAImageDownloader alloc] initWithEvent:event];
-        [_downloadImageQueue addOperation:imageDownLoader];
+        //DownLoad ThumbNail
+        NSString* thumbNailUrl = eventData[@"thumbnail"];
+        //@weakify(self);
+        [DAImageDownloader downLoadThumbNailImage:thumbNailUrl withCompletionBlock:^(UIImage *image) {
+           // @strongify(self)
+            [DAEventParseOperation saveThumbNail:image forEvent:event];
+        }];
+ 
         
     }
 }
+
+
++ (void)saveThumbNail:(UIImage*)image forEvent:(Event*)event
+{
+    //First Find the event from the database
+    [MagicalRecord saveUsingCurrentThreadContextWithBlockAndWait:^(NSManagedObjectContext *localContext) {
+        event.thambnail = UIImagePNGRepresentation(image);
+    }];
+}
+
+
 @end

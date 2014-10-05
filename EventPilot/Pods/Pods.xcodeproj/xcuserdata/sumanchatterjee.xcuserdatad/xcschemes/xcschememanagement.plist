@@ -8,49 +8,51 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-KCOrderedAccessorFix.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-MagicalRecord.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
+		</dict>
+		<key>Pods-libextobjc.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5C6835909DD646C5A4BF9ADA</key>
+		<key>01E3A1655F6B4FB8AD9F791F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B49F3F9E039B46E4979C4FEE</key>
+		<key>2942009FEEF442389FC96147</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA5F345E3F5A4C81A4D1E935</key>
+		<key>7CAD6C19E8D34EF884122767</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4FA25C303054759B37F6DC0</key>
+		<key>AFAB4DBBF9C74693BCCCA544</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B0633FC64D294EA5AE0EFE22</key>
 		<dict>
 			<key>primary</key>
 			<true/>

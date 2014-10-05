@@ -93,8 +93,6 @@ NSString * const Event_Info_Base_URL = @"https://api-content.dropbox.com/1/files
             NSHTTPURLResponse *httpResp = (NSHTTPURLResponse*) response;
             if (httpResp.statusCode == 200) {
                 
-                //REquest for download Json File
-                [self requestForDownLoad];
                 
                 NSString *response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSDictionary *accessTokenDict = [Dropbox dictionaryFromOAuthResponseString:response];
@@ -102,6 +100,11 @@ NSString * const Event_Info_Base_URL = @"https://api-content.dropbox.com/1/files
                 [[NSUserDefaults standardUserDefaults] setObject:accessTokenDict[oauthTokenKey] forKey:accessToken];
                 [[NSUserDefaults standardUserDefaults] setObject:accessTokenDict[oauthTokenKeySecret] forKey:accessTokenSecret];
                 [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                
+                //REquest for download Json File
+                [self requestForDownLoad];
+
                 
                 // now load main part of application
                 dispatch_async(dispatch_get_main_queue(), ^{

@@ -17,4 +17,6 @@
 #define MR_SHORTHAND
 #import "CoreData+MagicalRecord.h"
 #import "NSManagedObjectContext+ContextSwitching.h"
+#import <libextobjc/EXTScope.h>
+
 #endif

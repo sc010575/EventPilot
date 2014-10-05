@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking/AFHTTPRequestOperation.h>
 #import "Event.h"
 
-@interface DAImageDownloader : NSOperation
+typedef void(^ImageCompletionBlock)(UIImage * image);
 
-- (id)initWithEvent:(Event *)event;
+@interface DAImageDownloader : NSObject
+
++(void) downLoadThumbNailImage:(NSString*) Url withCompletionBlock:(ImageCompletionBlock) completionBlock;
+
 
 @end
