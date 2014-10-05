@@ -23,6 +23,10 @@
 /* Begin PBXBuildFile section */
 		8CFF89ED328C4A258901B664 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D37A927DCFE64CA7A36BDD58 /* libPods.a */; };
 		C5127895193670AA0018AC96 /* DATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5127894193670AA0018AC96 /* DATableViewCell.m */; };
+		C54479B319E1C82300756585 /* DAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54479B219E1C82300756585 /* DAAppDelegate.m */; };
+		C54479B619E1C83A00756585 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C54479B419E1C83A00756585 /* Main.storyboard */; };
+		C54479BB19E1C85100756585 /* DADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54479B819E1C85100756585 /* DADetailViewController.m */; };
+		C54479BC19E1C85100756585 /* DAMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54479BA19E1C85100756585 /* DAMasterViewController.m */; };
 		C5572FE11939E0EE0046D3C8 /* DADownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = C5572FDE1939E0EE0046D3C8 /* DADownloadService.m */; };
 		C5572FE21939E0EE0046D3C8 /* DAResultResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = C5572FE01939E0EE0046D3C8 /* DAResultResponse.m */; };
 		C5572FE51939EA7B0046D3C8 /* EventPilot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5572FE31939EA7B0046D3C8 /* EventPilot.xcdatamodeld */; };
@@ -46,10 +50,6 @@
 		C5CB502619331B3E00727D13 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB502519331B3E00727D13 /* CoreData.framework */; };
 		C5CB502C19331B3E00727D13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5CB502A19331B3E00727D13 /* InfoPlist.strings */; };
 		C5CB502E19331B3E00727D13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB502D19331B3E00727D13 /* main.m */; };
-		C5CB503219331B3E00727D13 /* DAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB503119331B3E00727D13 /* DAAppDelegate.m */; };
-		C5CB503519331B3F00727D13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5CB503319331B3F00727D13 /* Main.storyboard */; };
-		C5CB503E19331B3F00727D13 /* DAMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB503D19331B3F00727D13 /* DAMasterViewController.m */; };
-		C5CB504119331B3F00727D13 /* DADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CB504019331B3F00727D13 /* DADetailViewController.m */; };
 		C5CB504319331B3F00727D13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5CB504219331B3F00727D13 /* Images.xcassets */; };
 		C5CB504A19331B3F00727D13 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB504919331B3F00727D13 /* XCTest.framework */; };
 		C5CB504B19331B3F00727D13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5CB501F19331B3E00727D13 /* Foundation.framework */; };
@@ -76,6 +76,13 @@
 /* Begin PBXFileReference section */
 		C5127893193670AA0018AC96 /* DATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DATableViewCell.h; sourceTree = "<group>"; };
 		C5127894193670AA0018AC96 /* DATableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DATableViewCell.m; sourceTree = "<group>"; };
+		C54479B119E1C82300756585 /* DAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAAppDelegate.h; path = EventPilot/DAAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		C54479B219E1C82300756585 /* DAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAAppDelegate.m; path = EventPilot/DAAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		C54479B519E1C83A00756585 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = EventPilot/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		C54479B719E1C85100756585 /* DADetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DADetailViewController.h; path = EventPilot/DADetailViewController.h; sourceTree = SOURCE_ROOT; };
+		C54479B819E1C85100756585 /* DADetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DADetailViewController.m; path = EventPilot/DADetailViewController.m; sourceTree = SOURCE_ROOT; };
+		C54479B919E1C85100756585 /* DAMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAMasterViewController.h; path = EventPilot/DAMasterViewController.h; sourceTree = SOURCE_ROOT; };
+		C54479BA19E1C85100756585 /* DAMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DAMasterViewController.m; path = EventPilot/DAMasterViewController.m; sourceTree = SOURCE_ROOT; };
 		C5572FDD1939E0EE0046D3C8 /* DADownloadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DADownloadService.h; sourceTree = "<group>"; };
 		C5572FDE1939E0EE0046D3C8 /* DADownloadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DADownloadService.m; sourceTree = "<group>"; };
 		C5572FDF1939E0EE0046D3C8 /* DAResultResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAResultResponse.h; sourceTree = "<group>"; };
@@ -113,13 +120,6 @@
 		C5CB502B19331B3E00727D13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C5CB502D19331B3E00727D13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C5CB502F19331B3E00727D13 /* EventPilot-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EventPilot-Prefix.pch"; sourceTree = "<group>"; };
-		C5CB503019331B3E00727D13 /* DAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DAAppDelegate.h; path = ../DAAppDelegate.h; sourceTree = "<group>"; };
-		C5CB503119331B3E00727D13 /* DAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DAAppDelegate.m; path = ../DAAppDelegate.m; sourceTree = "<group>"; };
-		C5CB503419331B3F00727D13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C5CB503C19331B3F00727D13 /* DAMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DAMasterViewController.h; path = ../DAMasterViewController.h; sourceTree = "<group>"; };
-		C5CB503D19331B3F00727D13 /* DAMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DAMasterViewController.m; path = ../DAMasterViewController.m; sourceTree = "<group>"; };
-		C5CB503F19331B3F00727D13 /* DADetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DADetailViewController.h; path = ../DADetailViewController.h; sourceTree = "<group>"; };
-		C5CB504019331B3F00727D13 /* DADetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DADetailViewController.m; path = ../DADetailViewController.m; sourceTree = "<group>"; };
 		C5CB504219331B3F00727D13 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C5CB504819331B3F00727D13 /* EventPilotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventPilotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5CB504919331B3F00727D13 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -303,7 +303,7 @@
 		C5CB50621934965D00727D13 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				C5CB503319331B3F00727D13 /* Main.storyboard */,
+				C54479B419E1C83A00756585 /* Main.storyboard */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -311,8 +311,8 @@
 		C5CB50631934965D00727D13 /* Project Folder */ = {
 			isa = PBXGroup;
 			children = (
-				C5CB503019331B3E00727D13 /* DAAppDelegate.h */,
-				C5CB503119331B3E00727D13 /* DAAppDelegate.m */,
+				C54479B119E1C82300756585 /* DAAppDelegate.h */,
+				C54479B219E1C82300756585 /* DAAppDelegate.m */,
 			);
 			path = "Project Folder";
 			sourceTree = "<group>";
@@ -320,10 +320,10 @@
 		C5CB50641934965D00727D13 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C5CB503C19331B3F00727D13 /* DAMasterViewController.h */,
-				C5CB503D19331B3F00727D13 /* DAMasterViewController.m */,
-				C5CB503F19331B3F00727D13 /* DADetailViewController.h */,
-				C5CB504019331B3F00727D13 /* DADetailViewController.m */,
+				C54479B719E1C85100756585 /* DADetailViewController.h */,
+				C54479B819E1C85100756585 /* DADetailViewController.m */,
+				C54479B919E1C85100756585 /* DAMasterViewController.h */,
+				C54479BA19E1C85100756585 /* DAMasterViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -435,8 +435,8 @@
 			files = (
 				C5A0D94D198BD57900D49021 /* document.json in Resources */,
 				C5CB504319331B3F00727D13 /* Images.xcassets in Resources */,
-				C5CB503519331B3F00727D13 /* Main.storyboard in Resources */,
 				C5CB502C19331B3E00727D13 /* InfoPlist.strings in Resources */,
+				C54479B619E1C83A00756585 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,21 +504,21 @@
 				C5572FEB1939EF1D0046D3C8 /* Event.m in Sources */,
 				C5573003193A21E00046D3C8 /* _Categories.m in Sources */,
 				C5572FE21939E0EE0046D3C8 /* DAResultResponse.m in Sources */,
+				C54479B319E1C82300756585 /* DAAppDelegate.m in Sources */,
 				C5CB50681934969400727D13 /* DACoreDataHandler.m in Sources */,
 				C5CB502E19331B3E00727D13 /* main.m in Sources */,
-				C5CB504119331B3F00727D13 /* DADetailViewController.m in Sources */,
 				C5572FE51939EA7B0046D3C8 /* EventPilot.xcdatamodeld in Sources */,
 				C5572FF7193A20CA0046D3C8 /* _EventImages.m in Sources */,
 				C5572FF6193A20CA0046D3C8 /* _Coordinates.m in Sources */,
 				C5572FFE193A20D80046D3C8 /* EventImages.m in Sources */,
 				C5127895193670AA0018AC96 /* DATableViewCell.m in Sources */,
-				C5CB503219331B3E00727D13 /* DAAppDelegate.m in Sources */,
 				C5572FFD193A20D80046D3C8 /* Coordinates.m in Sources */,
+				C54479BB19E1C85100756585 /* DADetailViewController.m in Sources */,
 				C5B9C10D197D763000C8F5DE /* DAImageDownloader.m in Sources */,
 				C5AD45311996077000F85400 /* Dropbox.m in Sources */,
 				C5573004193A21E00046D3C8 /* Categories.m in Sources */,
 				C5D3FD98197AA2DA00701FBD /* DAResourceLoader.m in Sources */,
-				C5CB503E19331B3F00727D13 /* DAMasterViewController.m in Sources */,
+				C54479BC19E1C85100756585 /* DAMasterViewController.m in Sources */,
 				C5572FEA1939EF1D0046D3C8 /* _Event.m in Sources */,
 				C5CB506B193497FD00727D13 /* NSManagedObjectContext+ContextSwitching.m in Sources */,
 				C5D3FD9B197AB72B00701FBD /* DAEventParseOperation.m in Sources */,
@@ -548,21 +548,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C54479B419E1C83A00756585 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C54479B519E1C83A00756585 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		C5CB502A19331B3E00727D13 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C5CB502B19331B3E00727D13 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		C5CB503319331B3F00727D13 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C5CB503419331B3F00727D13 /* Base */,
-			);
-			name = Main.storyboard;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		C5CB505319331B3F00727D13 /* InfoPlist.strings */ = {
