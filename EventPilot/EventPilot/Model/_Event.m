@@ -20,9 +20,6 @@ const struct EventRelationships EventRelationships = {
 	.eventimages = @"eventimages",
 };
 
-const struct EventFetchedProperties EventFetchedProperties = {
-};
-
 @implementation EventID
 @end
 
@@ -48,103 +45,49 @@ const struct EventFetchedProperties EventFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic address;
-
-
-
-
-
 
 @dynamic eventDesc;
 
-
-
-
-
-
 @dynamic event_Id;
-
-
-
-
-
 
 @dynamic name;
 
-
-
-
-
-
 @dynamic postalCode;
-
-
-
-
-
 
 @dynamic thambnail;
 
-
-
-
-
-
 @dynamic timeStamp;
-
-
-
-
-
 
 @dynamic type;
 
-
-
-
-
-
 @dynamic category;
 
-	
 - (NSMutableSet*)categorySet {
 	[self willAccessValueForKey:@"category"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"category"];
-  
+
 	[self didAccessValueForKey:@"category"];
 	return result;
 }
-	
 
 @dynamic coordinate;
 
-	
-
 @dynamic eventimages;
 
-	
 - (NSMutableSet*)eventimagesSet {
 	[self willAccessValueForKey:@"eventimages"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"eventimages"];
-  
+
 	[self didAccessValueForKey:@"eventimages"];
 	return result;
 }
-	
-
-
-
-
-
 
 @end
+

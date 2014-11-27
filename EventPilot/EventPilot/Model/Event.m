@@ -3,12 +3,13 @@
 
 @interface Event ()
 
-// Private interface goes here.
 
 @end
 
 
 @implementation Event
+
+@synthesize thambnailImageSaved;
 
 // Custom logic goes here.
 

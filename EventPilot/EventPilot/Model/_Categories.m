@@ -11,9 +11,6 @@ const struct CategoriesRelationships CategoriesRelationships = {
 	.events = @"events",
 };
 
-const struct CategoriesFetchedProperties CategoriesFetchedProperties = {
-};
-
 @implementation CategoriesID
 @end
 
@@ -39,37 +36,22 @@ const struct CategoriesFetchedProperties CategoriesFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic categoryName;
-
-
-
-
-
 
 @dynamic events;
 
-	
 - (NSMutableSet*)eventsSet {
 	[self willAccessValueForKey:@"events"];
-  
+
 	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"events"];
-  
+
 	[self didAccessValueForKey:@"events"];
 	return result;
 }
-	
-
-
-
-
-
 
 @end
+

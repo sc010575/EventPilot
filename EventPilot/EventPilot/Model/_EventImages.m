@@ -12,9 +12,6 @@ const struct EventImagesRelationships EventImagesRelationships = {
 	.event = @"event",
 };
 
-const struct EventImagesFetchedProperties EventImagesFetchedProperties = {
-};
-
 @implementation EventImagesID
 @end
 
@@ -40,35 +37,15 @@ const struct EventImagesFetchedProperties EventImagesFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic event_image;
-
-
-
-
-
 
 @dynamic imageUrl;
 
-
-
-
-
-
 @dynamic event;
 
-	
-
-
-
-
-
-
 @end
+

@@ -13,6 +13,7 @@
 #import "Coordinates.h"
 #import "EventImages.h"
 #import "DAImageDownloader.h"
+#import <KCOrderedAccessorFix/NSManagedObjectModel+KCOrderedAccessorFix.h>
 
 @interface DAEventParseOperation()
 
@@ -37,7 +38,7 @@
 
 -(void) parseEventWithContext:(NSManagedObjectContext*)context
 {
-    NSDictionary * parseJSON = [DAResourceLoader readJSONFromDocument:@"document.json"];
+    NSDictionary * parseJSON = [DAResourceLoader readJSONFromDocumentFromUrl:self.downloadData];
     
     NSArray *eventArray = parseJSON[@"items"];
     for (NSDictionary * individualEvent in eventArray)
@@ -67,7 +68,7 @@
         event.address = eventData[@"location"];
         event.eventDesc = eventData[@"description"];
         
-        //get the date
+        //get the date //TODO Date format is not correct !!
         NSString *dateString = eventData[@"date"];;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         
@@ -108,6 +109,7 @@
 //        }
         
         //DownLoad ThumbNail
+        event.thambnailImageSaved = NO;
         NSString* thumbNailUrl = eventData[@"thumbnail"];
         //@weakify(self);
         [DAImageDownloader downLoadThumbNailImage:thumbNailUrl withCompletionBlock:^(UIImage *image) {
@@ -123,9 +125,27 @@
 + (void)saveThumbNail:(UIImage*)image forEvent:(Event*)event
 {
     //First Find the event from the database
+    
+  //  [MagicalRecord setupCoreDataStackWithInMemoryStore];
+  //  [[NSManagedObjectModel MR_defaultManagedObjectModel] kc_generateOrderedSetAccessors];
     [MagicalRecord saveUsingCurrentThreadContextWithBlockAndWait:^(NSManagedObjectContext *localContext) {
-        event.thambnail = UIImagePNGRepresentation(image);
+        
+        
+        NSPredicate * Predicate = [NSPredicate predicateWithFormat:@"(name == %@) AND (event_Id == %@)", event.name ,event.event_Id];
+        
+        Event *recentEvent = [[Event MR_findAllWithPredicate:Predicate inContext:localContext]  firstObject];
+        if (!recentEvent) {
+            //no record found
+        }
+        else
+        {
+            recentEvent.thambnail = UIImagePNGRepresentation(image);
+            recentEvent.thambnailImageSaved = YES;
+        }
+    
     }];
+
+
 }
 
 

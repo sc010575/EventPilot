@@ -13,9 +13,8 @@
 
 @property (strong, nonatomic) NSOperationQueue *operationQueue;
 
-
 + (instancetype) shared;
--(void) requestForADownload:(DAResultResponse*)response;
+- (void) requestForADownload:(DAResultResponse*)response;
 
 
 @end

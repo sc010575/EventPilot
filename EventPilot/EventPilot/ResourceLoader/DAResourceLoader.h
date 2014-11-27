@@ -13,5 +13,5 @@
 + (id)JSONWithFileNameBundle:(NSString*)fileName;
 + (id)stringWithFileName:(NSString*)fileName ofType:(NSString*)type;
 + (id)readJSONFromDocument:(NSString*)fileName;
-
++ (id)readJSONFromDocumentFromUrl:(NSData*)fileData;
 @end

@@ -39,8 +39,6 @@
 }
 
 
-
-
 + (id)stringWithFileName:(NSString*)fileName ofType:(NSString*)type
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:type];
@@ -54,6 +52,7 @@
     
     return string;
 }
+
 
 + (id) readJSONFromDocument:(NSString*)fileName
 {
@@ -77,6 +76,26 @@
         return nil;
     }
 
+    id object = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:&error];
+    if (error) {
+        NSLog(@"Error Parsing JSON %@", error);
+        return nil;
+    }
+    
+    return object;
+}
+
++ (id)readJSONFromDocumentFromUrl:(NSData*)fileData
+{
+    
+    NSError *error;
+    NSData *json = fileData;
+    
+    if (error) {
+        NSLog(@"Error Reading JSON %@", error);
+        return nil;
+    }
+    
     id object = [NSJSONSerialization JSONObjectWithData:json options:NSJSONReadingAllowFragments error:&error];
     if (error) {
         NSLog(@"Error Parsing JSON %@", error);

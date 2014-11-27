@@ -12,9 +12,6 @@ const struct CoordinatesRelationships CoordinatesRelationships = {
 	.event = @"event",
 };
 
-const struct CoordinatesFetchedProperties CoordinatesFetchedProperties = {
-};
-
 @implementation CoordinatesID
 @end
 
@@ -40,7 +37,7 @@ const struct CoordinatesFetchedProperties CoordinatesFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"latitudeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"latitude"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -55,12 +52,7 @@ const struct CoordinatesFetchedProperties CoordinatesFetchedProperties = {
 	return keyPaths;
 }
 
-
-
-
 @dynamic latitude;
-
-
 
 - (double)latitudeValue {
 	NSNumber *result = [self latitude];
@@ -80,13 +72,7 @@ const struct CoordinatesFetchedProperties CoordinatesFetchedProperties = {
 	[self setPrimitiveLatitude:[NSNumber numberWithDouble:value_]];
 }
 
-
-
-
-
 @dynamic longitude;
-
-
 
 - (double)longitudeValue {
 	NSNumber *result = [self longitude];
@@ -106,17 +92,7 @@ const struct CoordinatesFetchedProperties CoordinatesFetchedProperties = {
 	[self setPrimitiveLongitude:[NSNumber numberWithDouble:value_]];
 }
 
-
-
-
-
 @dynamic event;
 
-	
-
-
-
-
-
-
 @end
+

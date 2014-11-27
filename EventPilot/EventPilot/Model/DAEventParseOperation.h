@@ -10,6 +10,9 @@
 
 typedef void(^ParseCompletionBlock)(BOOL success);
 
+
 @interface DAEventParseOperation : NSOperation
+
+@property (nonatomic) NSData *downloadData;
 
 @end

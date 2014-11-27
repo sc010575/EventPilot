@@ -3,7 +3,6 @@
 
 #import <CoreData/CoreData.h>
 
-
 extern const struct EventImagesAttributes {
 	__unsafe_unretained NSString *event_image;
 	__unsafe_unretained NSString *imageUrl;
@@ -13,13 +12,7 @@ extern const struct EventImagesRelationships {
 	__unsafe_unretained NSString *event;
 } EventImagesRelationships;
 
-extern const struct EventImagesFetchedProperties {
-} EventImagesFetchedProperties;
-
 @class Event;
-
-
-
 
 @interface EventImagesID : NSManagedObjectID {}
 @end
@@ -28,64 +21,31 @@ extern const struct EventImagesFetchedProperties {
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
-- (EventImagesID*)objectID;
-
-
-
-
+@property (nonatomic, readonly, strong) EventImagesID* objectID;
 
 @property (nonatomic, strong) NSData* event_image;
 
-
-
 //- (BOOL)validateEvent_image:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) NSString* imageUrl;
 
-
-
 //- (BOOL)validateImageUrl:(id*)value_ error:(NSError**)error_;
-
-
-
-
 
 @property (nonatomic, strong) Event *event;
 
 //- (BOOL)validateEvent:(id*)value_ error:(NSError**)error_;
 
-
-
-
-
-@end
-
-@interface _EventImages (CoreDataGeneratedAccessors)
-
 @end
 
 @interface _EventImages (CoreDataGeneratedPrimitiveAccessors)
 
-
 - (NSData*)primitiveEvent_image;
 - (void)setPrimitiveEvent_image:(NSData*)value;
-
-
-
 
 - (NSString*)primitiveImageUrl;
 - (void)setPrimitiveImageUrl:(NSString*)value;
 
-
-
-
-
 - (Event*)primitiveEvent;
 - (void)setPrimitiveEvent:(Event*)value;
-
 
 @end
